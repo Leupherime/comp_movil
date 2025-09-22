@@ -20,7 +20,17 @@ class QuienesSomosScreen extends StatelessWidget{
             const NavBar(),
 
             //Contenido de la pagina
-            
+            Image.network('https://www.tyschile.cl/images/quienessomos.jpg'),
+            Image.network('https://www.tyschile.cl/images/sombra.png'),
+            const SizedBox(height: 20),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: Text(
+                'Nuestro equipo y experiencia',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
 
             //Final de pagina
             const Footer(),

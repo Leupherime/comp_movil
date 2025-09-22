@@ -20,7 +20,75 @@ class ContactoScreen extends StatelessWidget{
             const NavBar(),
 
             //Contenido de la pagina
-            
+            Image.network('https://www.tyschile.cl/images/fotocontacto.jpg'),
+            Image.network('https://www.tyschile.cl/images/sombra.png'),
+            const SizedBox(height: 20),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: Text(
+                'CONTACTO',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container (
+                        width: 180,
+                        color: Colors.cyan,
+                        child: Row(
+                          children: [
+                            Text('Nombre'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container (
+                        width: 180,
+                        color: Colors.cyan,
+                        child: Row(
+                          children: [
+                            Text('Correo'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container (
+                        width: 180,
+                        color: Colors.cyan,
+                        child: Row(
+                          children: [
+                            Text('Asunto'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Container (
+                        width: 180,
+                        color: Colors.cyan,
+                        child: Row(
+                          children: [
+                            Text('Mensaje'),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+                //el mapa va aquí
+              ],
+            ),
 
             //Final de pagina
             const Footer(),

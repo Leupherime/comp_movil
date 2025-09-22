@@ -21,6 +21,7 @@ class InicioScreen extends StatelessWidget {
 
             //Contenido de la pagina
             Image.network('https://www.tyschile.cl/images/foto1.jpg'),
+            Image.network('https://www.tyschile.cl/images/sombra.png'),
             const SizedBox(height: 20),
 
             const Padding(
