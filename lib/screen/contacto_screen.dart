@@ -1,13 +1,20 @@
+
 import 'package:comp_movil/widgets/footer.dart';
 import 'package:comp_movil/widgets/nav_bar.dart';
-import 'package:comp_movil/widgets/Textfield.dart';
+import 'package:comp_movil/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
-class ContactoScreen extends StatelessWidget{
+class ContactoScreen extends StatelessWidget {
   const ContactoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Controladores para capturar lo que el usuario escribe
+    final nombreController = TextEditingController();
+    final correoController = TextEditingController();
+    final asuntoController = TextEditingController();
+    final mensajeController = TextEditingController();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -15,12 +22,10 @@ class ContactoScreen extends StatelessWidget{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
-            
-            // Imagen de encabezado con Navegador
+            // Navegador
             const NavBar(),
 
-            //Contenido de la pagina
+            // Contenido
             Image.network('https://www.tyschile.cl/images/fotocontacto.jpg'),
             Image.network('https://www.tyschile.cl/images/sombra.png'),
             const SizedBox(height: 20),
@@ -32,78 +37,60 @@ class ContactoScreen extends StatelessWidget{
                 style: TextStyle(fontSize: 12),
               ),
             ),
-
+            const SizedBox(height: 20),
             Row(
-              children: [
-                Column(
-                  children: [
-                    TextField('Nombre', 20.0),
-                    TextField('Asunto', 20.0),
-                    TextField('Mensaje', 60.0),
-                    Container(
-                      //width: 100.0,
-                      height: 20.0,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(230, 230, 230, 1),
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1.0
-                        )
-                      ),
-                      child: Text('Enviar Mail') //TextButton(onPressed: null, child: Text('Enviar Mail'))
-                    )
-                  ],
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Columna del formulario
+                  Expanded(
+                    flex: 1, // Ajusta el tamaño relativo
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          label: 'Nombre',
+                          height: 20.0,
+                          controller: nombreController,
+                        ),
+                        CustomTextField(
+                          label: 'Correo',
+                          height: 20.0,
+                          controller: correoController,
+                        ),
+                        CustomTextField(
+                          label: 'Asunto',
+                          height: 20.0,
+                          controller: asuntoController,
+                        ),
+                        CustomTextField(
+                          label: 'Mensaje',
+                          height: 20.0,
+                          controller: mensajeController,
+                        ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Manejo del envío de datos
+                          },
+                          child: const Text('Enviar Mail'),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                const SizedBox(width: 5), // Separación entre columnas
+
+                // Columna de la imagen
+                Expanded(
+                  flex: 1, // Ajusta el tamaño relativo
+                  child: Image.network(
+                    'https://www.educarchile.cl/sites/default/files/2020-01/Portada_google_maps.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-                //el mapa va aquí
-                Image.network('https://www.educarchile.cl/sites/default/files/2020-01/Portada_google_maps.png', height: 200.0, width: 200.0,),
               ],
             ),
-
-            //Final de pagina
+            //fin del contenido
             const Footer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TextField extends StatelessWidget {
-  String nombre;
-  double altura;
-  
-  TextField(this.nombre, this.altura, {
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Container (
-        width: 200,
-        color: Colors.cyan,
-        child: Row(
-          children: [
-            Container(
-              width: 60.0,
-              child: Text(nombre)
-            ),
-            Container(
-              width: 140,
-              height: altura,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1.0,
-                )
-              ),
-              //child: TextField(
-              //  obscureText: false,
-              //  decoration: InputDecoration(border: OutlineInputBorder()),
-              //),
-            )
           ],
         ),
       ),
