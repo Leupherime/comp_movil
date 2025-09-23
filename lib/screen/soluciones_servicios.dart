@@ -1,5 +1,6 @@
 import 'package:comp_movil/widgets/footer.dart';
 import 'package:comp_movil/widgets/nav_bar.dart';
+import 'package:comp_movil/widgets/side_button.dart';
 import 'package:flutter/material.dart';
 
 class SolucionesServiciosScreen extends StatelessWidget {
@@ -51,10 +52,10 @@ class SolucionesServiciosScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          _sideButton('Cloud'),
-                          _sideButton('OnPremise'),
-                          _sideButton('Consultoría'),
-                          _sideButton('Services Management'),
+                          sideButton('Cloud'),
+                          sideButton('OnPremise'),
+                          sideButton('Consultoría'),
+                          sideButton('Services Management'),
                         ],
                       ),
                     ),
@@ -89,8 +90,8 @@ class SolucionesServiciosScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             // Final de página
+            
             const Footer(),
           ],
         ),
@@ -98,20 +99,4 @@ class SolucionesServiciosScreen extends StatelessWidget {
     );
   }
 
-  /// 🔹 Widget simple para botones del menú lateral
-  Widget _sideButton(String text) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 94, 106, 114),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-      child: Text(
-        text,
-        style: const TextStyle(color: Colors.white, fontSize: 14),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
 }
