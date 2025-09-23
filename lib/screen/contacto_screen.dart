@@ -1,5 +1,6 @@
 import 'package:comp_movil/widgets/footer.dart';
 import 'package:comp_movil/widgets/nav_bar.dart';
+import 'package:comp_movil/widgets/Textfield.dart';
 import 'package:flutter/material.dart';
 
 class ContactoScreen extends StatelessWidget{
@@ -36,62 +37,73 @@ class ContactoScreen extends StatelessWidget{
               children: [
                 Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container (
-                        width: 180,
-                        color: Colors.cyan,
-                        child: Row(
-                          children: [
-                            Text('Nombre'),
-                          ],
-                        ),
+                    TextField('Nombre', 20.0),
+                    TextField('Asunto', 20.0),
+                    TextField('Mensaje', 60.0),
+                    Container(
+                      //width: 100.0,
+                      height: 20.0,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(230, 230, 230, 1),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.0
+                        )
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container (
-                        width: 180,
-                        color: Colors.cyan,
-                        child: Row(
-                          children: [
-                            Text('Correo'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container (
-                        width: 180,
-                        color: Colors.cyan,
-                        child: Row(
-                          children: [
-                            Text('Asunto'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container (
-                        width: 180,
-                        color: Colors.cyan,
-                        child: Row(
-                          children: [
-                            Text('Mensaje'),
-                          ],
-                        ),
-                      ),
-                    ),
+                      child: Text('Enviar Mail') //TextButton(onPressed: null, child: Text('Enviar Mail'))
+                    )
                   ],
-                )
+                ),
                 //el mapa va aquí
+                Image.network('https://www.educarchile.cl/sites/default/files/2020-01/Portada_google_maps.png', height: 200.0, width: 200.0,),
               ],
             ),
 
             //Final de pagina
             const Footer(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TextField extends StatelessWidget {
+  String nombre;
+  double altura;
+  
+  TextField(this.nombre, this.altura, {
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Container (
+        width: 200,
+        color: Colors.cyan,
+        child: Row(
+          children: [
+            Container(
+              width: 60.0,
+              child: Text(nombre)
+            ),
+            Container(
+              width: 140,
+              height: altura,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1.0,
+                )
+              ),
+              //child: TextField(
+              //  obscureText: false,
+              //  decoration: InputDecoration(border: OutlineInputBorder()),
+              //),
+            )
           ],
         ),
       ),
